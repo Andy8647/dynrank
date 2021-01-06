@@ -43,4 +43,4 @@ Getting Started
         <code> cf.defineButtons(id) </code>
         <p><strong>Important:</strong> Only when you pass in 0 to the constructor you can call defineButtons</p>
         
- See documentation here: https://dynrank.herokuapp.com/doc
+ See documentation here: https://dynrank.herokuapp.com/documentation.html
