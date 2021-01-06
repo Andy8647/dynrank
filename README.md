@@ -5,7 +5,7 @@ Getting Started
         <p>First download this js file to where you want to use it. To use it you have to first include jQuery in you
             html head.
             Then include this library in your html file.</p>
-        <code> &ltscript defer type="text/javascript" src="yourFolder/dynRank.js">&lt/script> </code>
+        <code> <script defer type="text/javascript" src="yourFolder/dynRank.js"></script> </code>
         <p>Create a new file under the same directory. This is where you want to load your data and make the graph,
             say it examples.js</p>
         <p>Also include that examples.jsin your html file.</p>
@@ -34,7 +34,7 @@ Getting Started
         <p> Here id is the id of this graph and pid is the id of its parent element. In your html file where you want 
             to put this graph, include:
         </p>
-        <code> &ltdiv id=pid>&lt/div> </code>
+        <code> <div id=pid></div> </code>
         <p> Back to our examples.js, now you have the container of this graph, then you can let it draw the sequence of charts</p>
         <code> cf.drawChartSeq(id) </code>
         <p> The last step depends on whether you want this graph automatically play or not. If it plays automatically, call:</p>
