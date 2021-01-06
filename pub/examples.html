@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>examples</title>
+  <link rel="stylesheet" href="./styles.css" type="text/css">
+  <!-- jQuery -->
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- load my library -->
+  <script defer type="text/javascript" src="../js/dynRank.js"></script>
+  <!-- load demo examples used my library -->
+  <script defer type="text/javascript" src="../js/examples.js"></script>
+</head>
+
+<body>
+  <body>
+    <div class="navibar">
+      <ul>
+        <a href="index.html" class="naviHead"> DynamicRanking.js </a>
+        <li class="naviLi">
+          <a href="documentation.html" class="naviLiA"> APIs </a>
+        </li>
+        <li class="naviLi">
+          <a href="examples.html" class="naviLiA"> Examples </a>
+        </li>
+      </ul>
+    </div>
+  <h1>Examples</h1>
+
+  <div class="description">
+    <p> Following are some example use case of this library. All data are hard-coded and too long so they are not displayed here.
+       In the first two examples we comapre the average GDP of
+      five countries over the past decades.The GDP data come from
+      <a href="https://en.wikipedia.org/wiki/List_of_countries_by_largest_historical_GDP#cite_note-6"
+        target="_blank">Wiki</a>. Colors are not provided for the first two examples so every time you reload this page it will be different </p>
+    <p>First is one have 600*400 size and automatically playing with a time interval of 2 seconds. </p> 
+    <code>const cf1 = new ChartFactory(1) </code> <br/>
+    <code> cf1.loadData(GDPs) </code><br/>
+    <code> cf1.setColors([]) </code><br/>
+    <code> cf1.createContainer("ddv1", 600, 400, "Ex1") </code><br/>
+    <code> cf1.drawChartSeq("ddv1") </code><br/>
+    <code> cf1.Play("ddv1", 2000) </code><br/>
+    <div id = "Ex1"></div>
+    <p> Second is one have 800*600 size and controlled by buttons. You can click on the buttons to check different charts.</p>
+    <code>const cf2 = new ChartFactory(0) </code><br/>
+    <code> cf2.loadData(GDPs) </code><br/>
+    <code> cf2.setColors([]) </code> <br/>
+    <code> cf2.createContainer("ddv2", 800, 600, "Ex2") </code> <br/>
+    <code> cf2.drawChartSeq("ddv2") </code> <br/>
+    <code> cf2.Play("ddv2", 2000) </code> <br/>
+    <div id = "Ex2"></div>
+    <p> Last is the number of COVID cases between five countries from January to Novenmber in 2020. 
+    Data from: <a href="https://ourworldindata.org/coronavirus-data-explorer?zoomToSelection=true&time=earliest..2020-01-31&country=IND~USA~GBR~CAN~ITA&region=World&casesMetric=true&interval=total&perCapita=true&smoothing=0&pickerMetric=total_cases&pickerSort=desc"
+    target="_blank">Our World in Data</a>.
+    Colors provided. Unit: Million.</p>
+    <code>const cf3 = new ChartFactory(1) </code><br/>
+    <code> cf3.loadData(COVID) </code><br/>
+    <code> cf3.setColors(["f44336", "009688", "ff5722", "2196f3", "795548"]) </code> <br/>
+    <code> cf3.createContainer("ddv3", 1000, 800, "Ex3") </code> <br/>
+    <code> cf3.drawChartSeq("ddv3") </code> <br/>
+    <code> cf3.Play("ddv3", 2000) </code> <br/>
+    <div id="Ex3"></div>
+    <strong>Wish you health. Take Care!</strong>
+  </div>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <footer>©2020 Created by Andy at <a href="https://github.com/csc309-fall-2020/js-library-luoganch"
+      target="_blank">Github</a> </footer>
+</body>
+
+</html>
