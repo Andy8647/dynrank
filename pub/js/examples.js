@@ -426,7 +426,7 @@ const COVID = [
         "legend": "Nov",
         "data": [{
             "label": "China",
-            "value": 41085.76
+            "value": 63.48
         }, {
             "label": "Canada",
             "value": 10109.57
