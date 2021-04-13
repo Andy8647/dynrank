@@ -18,7 +18,8 @@
     const controlBut = document.createElement("button");
     controlBut.setAttribute("id", action);
     controlBut.innerHTML = `<span>${action}</span>`;
-    controlBut.style = "margin: 5px";
+    controlBut.style =
+      "margin: 5px; border: 1px solid transparent; border-radius: 0.25rem; box-shadow: 0 2px 4px 0 rgb(0 0 0 / 15%), 0 2px 10px 0 rgb(0 0 0 / 15%)";
     return controlBut;
   }
 
@@ -70,14 +71,14 @@
       //the main block to display the chart
       const chartContainer = document.createElement("div");
       chartContainer.setAttribute("id", id);
-      chartContainer.style = `width: ${w}px; height: ${h}px; border: 1px solid black;
-                                         border-radius: 1%; margin: 10px auto 10px auto;
+      chartContainer.style = `width: ${w}px; height: ${h}px; border: 1px solid gainsboro;
+                                         border-radius: 0.25rem; margin: 10px auto 10px auto;
                                           position: relative; background-color: #E0E0E0; box-shadow: 0 2px 4px 0 rgb(0 0 0 / 15%), 0 2px 10px 0 rgb(0 0 0 / 15%);`;
       if (!this.autoPlay) {
         // the three buttons at the bottom to control the chart sequence
         const controlPanel = document.createElement("div");
         controlPanel.setAttribute("id", "control-bar");
-        controlPanel.style = `width: ${w}px; border-Top: 1px solid black; align-items: center; justify-content: center;
+        controlPanel.style = `width: ${w}px; border-Top: 1px solid transparent; align-items: center; justify-content: center;
                                     bottom: 0; position: absolute; display: flex; background-color: #607D8B`;
 
         controlPanel.appendChild(createControlBut("BACK"));
@@ -114,13 +115,13 @@
         const barToDraw = document.createElement("div");
         const barLength = Math.ceil((item.value / maxValue) * 100 - 1);
         barToDraw.style = `width: ${barLength}%; height: ${barHeight}px; margin: 10px 5px 10px 5px; padding: 0px; 
-                                        border: 1px solid black; background-color: #${this.dataSet[i].data[index].color}; 
-                                        text-align: right; border-radius: 2%; box-shadow: 0 2px 4px 0 rgb(0 0 0 / 15%), 0 2px 10px 0 rgb(0 0 0 / 15%)`;
+                                        border: 1px solid transparent; background-color: #${this.dataSet[i].data[index].color}; 
+                                        text-align: right; border-radius: 0.25rem; box-shadow: 0 2px 4px 0 rgb(0 0 0 / 15%), 0 2px 10px 0 rgb(0 0 0 / 15%)`;
 
         const barLabel = document.createElement("div");
         barLabel.style = `margin-top: ${
           (barHeight - 20) / 2
-        }px; font-family: fantasy; font-size: 100%`;
+        }px; font-family: sans-serif; font-size: 100%`;
         barLabel.innerHTML = `${item.label}: ${item.value}`;
         barToDraw.appendChild(barLabel);
 
