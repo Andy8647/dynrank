@@ -1,177 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>apis</title>
-    <link rel="stylesheet" href="./styles.css" type="text/css" >
-</head>
+    <link rel="stylesheet" href="./styles.css" type="text/css" />
+  </head>
 
-<body>
+  <body>
     <div class="navibar">
-        <ul>
-          <a href="index.html" class="naviHead"> DynamicRanking.js </a>
-          <li class="naviLi">
-            <a href="documentation.html" class="naviLiA"> APIs </a>
-          </li>
-          <li class="naviLi">
-            <a href="examples.html" class="naviLiA"> Examples </a>
-          </li>
-        </ul>
-      </div>
-    <div class="description">
-        <h2>Getting Started</h2>
-        <p>First download this js file to where you want to use it. To use it you have to first include jQuery in you
-            html head.
-            Then include this library in your html file.</p>
-        <code> &ltscript defer type="text/javascript" src="yourFolder/dynRank.js">&lt/script> </code>
-        <p>Create a new file under the same directory. This is where you want to load your data and make the graph,
-            say it examples.js</p>
-        <p>Also include that examples.jsin your html file.</p>
-        <p>Within your examples.js, first create a new Object that helps us make the graph:</p>
-        <code> const cf = new chartFactory(0)</code>
-        <p> Note that we pass 0 into the constructor, whihc is a automatically play flag. If you want your graph to
-            automatically play, set it to 1.
-        </p>
-        <p>Then you need some hard-coded data in such form:</p>
-        <code> dataSet = [{"legend": "1970", "data": [{"label": "a", "value": 1}, {{"label": "b", "value": 2}, 
-            {{"label": "c", "value": 3}]}, {}, {}, ...] </code>
-        <p>This dataSet could be a little complex.</p> 
-        <p> Basically you should input an array. And each item of the array 
-            is an object, which has two key-value pairs: -legend: a string which is the directional variable, usually time.
-            And -data: the data you want to draw the graph with. Inside this data is another array of objects which is the 
-            label and the value of the objects. 
-        </p>
-        <p> Once you hard-coded your dataSet, you can load it into our library by doing so:</p>
-        <code> cf.loadData(dataSet) </code>
-        <p>Then you have to set the colors for each object. If you do want to set colors you self then you can pass in 
-            an empty array then the library will use random colors.
-        </p>
-        <code> cf.setColors([]) </code>
-        <p> Then you can set the id, size, parent element of this graph.</p>
-        <code> cf.createContainer(id, width, height, pid) </code>
-        <p> Here id is the id of this graph and pid is the id of its parent element. In your html file where you want 
-            to put this graph, include:
-        </p>
-        <code> &ltdiv id=pid>&lt/div> </code>
-        <p> Back to our examples.js, now you have the container of this graph, then you can let it draw the sequence of charts</p>
-        <code> cf.drawChartSeq(id) </code>
-        <p> The last step depends on whether you want this graph automatically play or not. If it plays automatically, call:</p>
-        <code> cf.Play(i, time) </code>
-        <p>Here time is the time interval between two charts. And if you want it to be controlled by buttons, call: </p>
-        <code> cf.defineButtons(id) </code>
-        <p><strong>Important:</strong> Only when you pass in 0 to the constructor you can call defineButtons</p>
-
-        <h2>API Documentations</h2>
-        <h3>chartFactory Object</h3>
-        <table class="apiTable">
-            <tbody>
-                <tr>
-                    <th>Attribute</th>
-                    <th>Description</th>
-                    <th>Type</th>
-                    <th>Default Value</th>
-                </tr>
-                <tr>
-                    <td>dataSet</td>
-                    <td>The raw data to draw charts with</td>
-                    <td> Array </td>
-                    <td> [ ] </td>
-                </tr>
-                <tr>
-                    <td>colors</td>
-                    <td>A sequence of colors</td>
-                    <td> Array </td>
-                    <td> [ ] </td>
-                </tr>
-                <tr>
-                    <td>colors</td>
-                    <td>A sequence of colors</td>
-                    <td> Array </td>
-                    <td> [ ] </td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3>chartFactory methods</h3>
-        <h4>For developers:</h4>
-        <table class="apiTable">
-            <tbody>
-                <tr>
-                    <th>Function</th>
-                    <th>Description</th>
-                    <th>Paramater</th>
-                </tr>
-                <tr>
-                    <td>loadData(data)</td>
-                    <td>load the dataset to be drawn</td>
-                    <td> data: Array of objects</td>
-                </tr>
-                <tr>
-                    <td>setColors(colors)</td>
-                    <td>set the colors of the objects to be drawn</td>
-                    <td> colors: Array of strings</td>
-                </tr>
-                <tr>
-                    <td>createContainer(id, w, h, pid)</td>
-                    <td>crate the main container to hold the charts and append to the parent element</td>
-                    <td> id: html id of this container, w: width, h: height, pid: html id of parent element</td>
-                </tr>
-                <tr>
-                    <td>drawSingleChart(id, i)</td>
-                    <td>draw a single chart and append to this.chartSeq </td>
-                    <td> id: html id of the container, i: the index of object of this.dataSet  </td>
-                </tr>
-                <tr>
-                    <td>drawChartSeq(id)</td>
-                    <td>draw sequence of charts and append the first one to the container </td>
-                    <td> id: html id of the container</td>
-                </tr>
-                <tr>
-                    <td>Play(id, time)</td>
-                    <td>make the charts automatically play with an interval if the paramater passed into the constructor is 1</td>
-                    <td> id: html id of the container, time: the time interval between two charts</td>
-                </tr>
-                <tr>
-                    <td>defineButtons(id)</td>
-                    <td>define the control buttons if the paramater passed into the constructor is 0</td>
-                    <td> id: html id of the container</td>
-                </tr>
-            </tbody>
-        </table>
-        <h4>Helper Functions:</h4>
-        <table class="apiTable">
-            <tbody>
-                <tr>
-                    <th>Function</th>
-                    <th>Description</th>
-                    <th>Paramater</th>
-                    <th>Return</th>
-                </tr>
-                <tr>
-                    <td>createControlBut(action)</td>
-                    <td>create a html &ltbutton> by action</td>
-                    <td> action: string</td>
-                    <td> html element &ltbutton> </td>
-                </tr>
-                <tr>
-                    <td>genarateRandomColors(len)</td>
-                    <td>generate an array of colors randomly which has len colors</td>
-                    <td> lens: number of colors to be generated</td>
-                    <td> Array of string </td>
-                </tr>
-            </tbody>
-        </table>
+      <ul>
+        <a href="index.html" class="naviHead"> DynamicRanking.js </a>
+        <li class="naviLi">
+          <a href="documentation.html" class="naviLiA"> APIs </a>
+        </li>
+        <li class="naviLi">
+          <a href="examples.html" class="naviLiA"> Examples </a>
+        </li>
+      </ul>
     </div>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <footer>©2020 Created by Andy at <a href="https://github.com/Andy8647/dynrank"
-            target="_blank">Github</a> </footer>
-</body>
+    <div class="description">
+      <h2>Getting Started</h2>
+      <p>
+        First download this js file to where you want to use it. To use it you
+        have to first include jQuery in you html head. Then include this library
+        in your html file.
+      </p>
+      <code>
+        &ltscript defer type="text/javascript"
+        src="yourFolder/dynRank.js">&lt/script>
+      </code>
+      <p>
+        Create a new file under the same directory. This is where you want to
+        load your data and make the graph, say it examples.js
+      </p>
+      <p>Also include that examples.jsin your html file.</p>
+      <p>
+        Within your examples.js, first create a new Object that helps us make
+        the graph:
+      </p>
+      <code> const cf = new chartFactory(0)</code>
+      <p>
+        Note that we pass 0 into the constructor, whihc is a automatically play
+        flag. If you want your graph to automatically play, set it to 1.
+      </p>
+      <p>Then you need some hard-coded data in such form:</p>
+      <code>
+        dataSet = [{"legend": "1970", "data": [{"label": "a", "value": 1},
+        {{"label": "b", "value": 2}, {{"label": "c", "value": 3}]}, {}, {}, ...]
+      </code>
+      <p>This dataSet could be a little complex.</p>
+      <p>
+        Basically you should input an array. And each item of the array is an
+        object, which has two key-value pairs: -legend: a string which is the
+        directional variable, usually time. And -data: the data you want to draw
+        the graph with. Inside this data is another array of objects which is
+        the label and the value of the objects.
+      </p>
+      <p>
+        Once you hard-coded your dataSet, you can load it into our library by
+        doing so:
+      </p>
+      <code> cf.loadData(dataSet) </code>
+      <p>
+        Then you have to set the colors for each object. If you do want to set
+        colors you self then you can pass in an empty array then the library
+        will use random colors.
+      </p>
+      <code> cf.setColors([]) </code>
+      <p>Then you can set the id, size, parent element of this graph.</p>
+      <code> cf.createContainer(id, width, height, pid) </code>
+      <p>
+        Here id is the id of this graph and pid is the id of its parent element.
+        In your html file where you want to put this graph, include:
+      </p>
+      <code> &ltdiv id=pid>&lt/div> </code>
+      <p>
+        Back to our examples.js, now you have the container of this graph, then
+        you can let it draw the sequence of charts
+      </p>
+      <code> cf.drawChartSeq(id) </code>
+      <p>
+        The last step depends on whether you want this graph automatically play
+        or not. If it plays automatically, call:
+      </p>
+      <code> cf.Play(i, time) </code>
+      <p>
+        Here time is the time interval between two charts. And if you want it to
+        be controlled by buttons, call:
+      </p>
+      <code> cf.defineButtons(id) </code>
+      <p>
+        <strong>Important:</strong> Only when you pass in 0 to the constructor
+        you can call defineButtons
+      </p>
 
+      <h2>API Documentations</h2>
+      <h3>chartFactory Object</h3>
+      <table class="apiTable">
+        <tbody>
+          <tr>
+            <th>Attribute</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Default Value</th>
+          </tr>
+          <tr>
+            <td>dataSet</td>
+            <td>The raw data to draw charts with</td>
+            <td>Array</td>
+            <td>[ ]</td>
+          </tr>
+          <tr>
+            <td>colors</td>
+            <td>A sequence of colors</td>
+            <td>Array</td>
+            <td>[ ]</td>
+          </tr>
+          <tr>
+            <td>colors</td>
+            <td>A sequence of colors</td>
+            <td>Array</td>
+            <td>[ ]</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>chartFactory methods</h3>
+      <h4>For developers:</h4>
+      <table class="apiTable">
+        <tbody>
+          <tr>
+            <th>Function</th>
+            <th>Description</th>
+            <th>Paramater</th>
+          </tr>
+          <tr>
+            <td>loadData(data)</td>
+            <td>load the dataset to be drawn</td>
+            <td>data: Array of objects</td>
+          </tr>
+          <tr>
+            <td>setColors(colors)</td>
+            <td>set the colors of the objects to be drawn</td>
+            <td>colors: Array of strings</td>
+          </tr>
+          <tr>
+            <td>createContainer(id, w, h, pid)</td>
+            <td>
+              crate the main container to hold the charts and append to the
+              parent element
+            </td>
+            <td>
+              id: html id of this container, w: width, h: height, pid: html id
+              of parent element
+            </td>
+          </tr>
+          <tr>
+            <td>drawSingleChart(id, i)</td>
+            <td>draw a single chart and append to this.chartSeq</td>
+            <td>
+              id: html id of the container, i: the index of object of
+              this.dataSet
+            </td>
+          </tr>
+          <tr>
+            <td>drawChartSeq(id)</td>
+            <td>
+              draw sequence of charts and append the first one to the container
+            </td>
+            <td>id: html id of the container</td>
+          </tr>
+          <tr>
+            <td>Play(id, time)</td>
+            <td>
+              make the charts automatically play with an interval if the
+              paramater passed into the constructor is 1
+            </td>
+            <td>
+              id: html id of the container, time: the time interval between two
+              charts
+            </td>
+          </tr>
+          <tr>
+            <td>defineButtons(id)</td>
+            <td>
+              define the control buttons if the paramater passed into the
+              constructor is 0
+            </td>
+            <td>id: html id of the container</td>
+          </tr>
+        </tbody>
+      </table>
+      <h4>Helper Functions:</h4>
+      <table class="apiTable">
+        <tbody>
+          <tr>
+            <th>Function</th>
+            <th>Description</th>
+            <th>Paramater</th>
+            <th>Return</th>
+          </tr>
+          <tr>
+            <td>createControlBut(action)</td>
+            <td>create a html &ltbutton> by action</td>
+            <td>action: string</td>
+            <td>html element &ltbutton></td>
+          </tr>
+          <tr>
+            <td>genarateRandomColors(len)</td>
+            <td>generate an array of colors randomly which has len colors</td>
+            <td>lens: number of colors to be generated</td>
+            <td>Array of string</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <footer>
+        ©2020 Created by Andy at
+        <a href="https://github.com/Andy8647/dynrank" target="_blank">Github</a>
+      </footer>
+    </div>
+  </body>
 </html>
