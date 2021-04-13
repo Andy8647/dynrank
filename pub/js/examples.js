@@ -482,7 +482,7 @@ function example() {
     cf2.defineButtons("ddv2")
 
     cf3.loadData(COVID)
-    cf3.setColors(["f44336", "009688", "ff5722", "2196f3", "795548"])
+    cf3.setColors(["#f44336", "#009688", "#ff5722", "#2196f3", "#795548"])
     cf3.createContainer("ddv3", 1000, 800, "Ex3")
     cf3.drawChartSeq("ddv3")
     cf3.Play("ddv3", 2000)
