@@ -25,9 +25,36 @@
 
   // Helper function to generate random color array by given length
   function genarateRandomColors(len) {
+    const materialColors = [
+      "#F44336",
+      "#FF8A80",
+      "#FF5252",
+      "#AD1457",
+      "#FF4081",
+      "#EA80FC",
+      "#AB47BC",
+      "#7C4DFF",
+      "#5E35B1",
+      "#3949AB",
+      "#283593",
+      "#3D5AFE",
+      "#1976D2",
+      "#2196F3",
+      "#2979FF",
+      "#00B0FF",
+      "#0277BD",
+      "#00695C",
+      "#00897B",
+      "#00BFA5",
+      "#00E676",
+      "#FF6F00",
+      "#F57C00",
+      "#FF5722",
+      "#607D8B",
+    ];
     const colors = [];
     for (let i = 0; i < len; i++) {
-      colors.push(Math.floor(Math.random() * 16777215).toString(16));
+      colors.push(materialColors[Math.floor(Math.random() * materialColors.length)])
     }
     return colors;
   }
@@ -79,7 +106,7 @@
         const controlPanel = document.createElement("div");
         controlPanel.setAttribute("id", "control-bar");
         controlPanel.style = `width: ${w}px; border-Top: 1px solid transparent; align-items: center; justify-content: center;
-                                    bottom: 0; position: absolute; display: flex; background-color: #607D8B`;
+                                    bottom: 0; position: absolute; display: flex;`;
 
         controlPanel.appendChild(createControlBut("BACK"));
         controlPanel.appendChild(createControlBut("NEXT"));
@@ -115,7 +142,7 @@
         const barToDraw = document.createElement("div");
         const barLength = Math.ceil((item.value / maxValue) * 100 - 1);
         barToDraw.style = `width: ${barLength}%; height: ${barHeight}px; margin: 10px 5px 10px 5px; padding: 0px; 
-                                        border: 1px solid transparent; background-color: #${this.dataSet[i].data[index].color}; 
+                                        border: 1px solid transparent; background-color: ${this.dataSet[i].data[index].color}; 
                                         text-align: right; border-radius: 0.25rem; box-shadow: 0 2px 4px 0 rgb(0 0 0 / 15%), 0 2px 10px 0 rgb(0 0 0 / 15%)`;
 
         const barLabel = document.createElement("div");
