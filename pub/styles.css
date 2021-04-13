@@ -60,14 +60,12 @@ h1 {
 }
 
 footer {
-  width: 100%;
-  height: 25px;
-  position: fixed;
-  bottom: 0px;
-  text-align: center;
-  background-color: #e3f2fd;
-  /* border-top: 0.5px solid gray; */
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  border-top: 1px solid #d5d5d5;
+  font-size: 100%;
+  font-family: monospace;
+  color: #333333;
+  margin-top: 5%;
+  margin-bottom: 1%;
 }
 
 footer a {
