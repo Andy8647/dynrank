@@ -100,7 +100,7 @@
       //the main block to display the chart
       const chartContainer = document.createElement("div");
       chartContainer.setAttribute("id", id);
-      chartContainer.style = `width: ${w}px; height: ${h}px; border: 1px solid gainsboro;
+      chartContainer.style = `width: ${w}px; height: ${h}px; border: 1px solid gainsboro; line-height: 100%;
                                          border-radius: 0.25rem; margin: 10px auto 10px auto;
                                           position: relative; background-color: #E0E0E0; box-shadow: 0 2px 4px 0 rgb(0 0 0 / 15%), 0 2px 10px 0 rgb(0 0 0 / 15%);`;
       if (!this.autoPlay) {
