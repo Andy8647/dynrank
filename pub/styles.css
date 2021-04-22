@@ -1,6 +1,7 @@
 body {
   background-color: #e0f2f1;
   margin: 0%;
+  font-family: 'Quicksand';
 }
 
 .navibar {
@@ -14,7 +15,6 @@ body {
 .naviHead {
   text-decoration: none;
   font-size: 300%;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   color: black;
 }
 
@@ -27,7 +27,6 @@ body {
 .naviLiA {
   display: block;
   text-align: center;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-size: 150%;
   text-decoration: none;
   color: black;
@@ -40,7 +39,6 @@ ul {
   margin: 0px;
 }
 h1 {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   margin-left: 20px;
   font-size: 300%;
 }
