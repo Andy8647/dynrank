@@ -54,7 +54,9 @@
     ];
     const colors = [];
     for (let i = 0; i < len; i++) {
-      colors.push(materialColors[Math.floor(Math.random() * materialColors.length)])
+      colors.push(
+        materialColors[Math.floor(Math.random() * materialColors.length)]
+      );
     }
     return colors;
   }
@@ -141,14 +143,14 @@
       dataToDraw.forEach((item, index) => {
         const barToDraw = document.createElement("div");
         const barLength = Math.ceil((item.value / maxValue) * 100 - 1);
-        barToDraw.style = `width: ${barLength}%; height: ${barHeight}px; margin: 10px 5px 10px 5px; padding: 0px; 
+        barToDraw.style = `width: ${barLength}%; height: ${barHeight}px; margin: 10px 5px 10px 5px; padding: 0px; display: flex; justify-content: flex-end;
                                         border: 1px solid transparent; background-color: ${this.dataSet[i].data[index].color}; 
                                         text-align: right; border-radius: 0.25rem; box-shadow: 0 2px 4px 0 rgb(0 0 0 / 15%), 0 2px 10px 0 rgb(0 0 0 / 15%)`;
 
         const barLabel = document.createElement("div");
         barLabel.style = `margin-top: ${
           (barHeight - 20) / 2
-        }px; font-family: sans-serif; font-size: 100%`;
+        }px; font-family: "Quicksand"; font-size: 100%`;
         barLabel.innerHTML = `${item.label}: ${item.value}`;
         barToDraw.appendChild(barLabel);
 
@@ -157,8 +159,8 @@
 
       // draw Legend
       const chartLegend = document.createElement("div");
-      chartLegend.innerHTML = this.dataSet[i].legend;
-      chartLegend.style = `position: absolute; bottom: 10%; right: 5%; font-family: fantasy; font-size: 300%`;
+      chartLegend.innerHTML = `<strong> ${this.dataSet[i].legend} <strong>`;
+      chartLegend.style = `position: absolute; bottom: 10%; right: 5%; font-family: "Quicksand"; font-size: 300%`;
       singleChart.appendChild(chartLegend);
 
       this.chartSeq.push(singleChart);
