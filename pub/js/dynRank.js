@@ -145,12 +145,10 @@
         const barLength = Math.ceil((item.value / maxValue) * 100 - 1);
         barToDraw.style = `width: ${barLength}%; height: ${barHeight}px; margin: 10px 5px 10px 5px; padding: 0px; display: flex; justify-content: flex-end;
                                         border: 1px solid transparent; background-color: ${this.dataSet[i].data[index].color}; 
-                                        text-align: right; border-radius: 0.25rem; box-shadow: 0 2px 4px 0 rgb(0 0 0 / 15%), 0 2px 10px 0 rgb(0 0 0 / 15%)`;
-
+                                        text-align: right; border-radius: 0.25rem; box-shadow: 0 2px 4px 0 rgb(0 0 0 / 15%), 0 2px 10px 0 rgb(0 0 0 / 15%); transition: width 0.2s ease-in-out`;
         const barLabel = document.createElement("div");
-        barLabel.style = `margin-top: ${
-          (barHeight - 20) / 2
-        }px; font-family: "Quicksand"; font-size: 100%`;
+        barLabel.style = `margin-top: ${(barHeight - 20) / 2
+          }px; font-family: "Quicksand"; font-size: 100%`;
         barLabel.innerHTML = `${item.label}: ${item.value}`;
         barToDraw.appendChild(barLabel);
 
